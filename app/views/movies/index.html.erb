@@ -1,0 +1,32 @@
+
+<h1>映画一覧</h1>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>公開年</th>
+      <th>概要</th>
+      <th>ポスター</th>
+      <th>上映情報</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |t| %> 
+    <tr>
+      <th><%= t.name %></th>
+      <th><%= t.year %></th>
+      <th><%= t.description %></th>
+      <th><%= t.image_url %></th>
+      <th><%= t.is_showing %></th>
+    </tr>
+    <% end %>
+  </tbody>
+
+
+<%# t.string "name", limit: 160, null: false, index: true ,comment: "映画のタイトル。邦題・洋題は一旦考えなくてOK"
+t.string "year", limit: 45, comment: "公開年"
+t.text "description", comment: "映画の説明文"
+t.string "image_url", limit: 150, comment: "映画のポスター画像が格納されているURL"
+t.boolean "is_showing", null: false, comment: "上映中かどうか"
+
+t.timestamps %>
+

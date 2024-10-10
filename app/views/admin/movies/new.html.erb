@@ -1,0 +1,21 @@
+<h1>新規映画入力フォーム</h1>
+<%= form_with model: @admin_movie,  local: true do |t| %>
+  <h4>タイトル</h4>
+  <%= t.text_field :title %>
+  <h4>公開年</h4>
+  <%= t.text_field :year %>
+  <h4>概要</h4>
+  <%= t.text_area :description %>
+  <h4>ポスター</h4>
+  <%= t.text_field :image_url %>
+  <h4>上映情報</h4>
+  <%= t.select :is_showing,[["上映中","true"],["未上映","false"]] %>
+  <%= t.submit '新規登録' %>
+<% end %>
+
+<%# t.string "name", limit: 160, null: false, index: true ,comment: "映画のタイトル。邦題・洋題は一旦考えなくてOK"
+t.string "year", limit: 45, comment: "公開年"
+t.text "description", comment: "映画の説明文"
+t.string "image_url", limit: 150, comment: "映画のポスター画像が格納されているURL"
+t.boolean "is_showing", null: false, comment: "上映中かどうか"
+t.timestamps %>
