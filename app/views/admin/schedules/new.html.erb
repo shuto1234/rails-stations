@@ -1,0 +1,11 @@
+<h1>admin/schedules/new</h1>
+
+<%= form_with model:@schedule, url: admin_movie_schedules_path,  local: true do |s| %>
+  <h4>映画id</h4>
+  <%= s.text_field :movie_id %>
+  <h4>開始時刻</h4>
+  <%= s.time_field :start_time %>
+  <h4>終了時刻</h4>
+  <%= s.time_field :end_time %>
+  <%= s.submit "保存"%>
+<% end %>
