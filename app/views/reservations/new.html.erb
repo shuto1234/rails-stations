@@ -1,0 +1,40 @@
+
+<div>
+  <h1>ご予約ページ</h1>
+
+    <p>
+      <p>選択中の映画</p>
+      <p><%= @movie.name %></p>
+    </p>
+    <p>
+      <p>選択中の映画ID</p>
+      <p><%= @movie.id %></p>
+    </p>
+    <p>
+      <p>選択中の日付</p>
+      <p><%= @date %></p>
+    </p>
+    <p>
+      <p>選択中のsheet_id</p>
+      <p><%= params[:sheet_id] %></p>
+    </p>
+    <p>
+      <p>選択中のschedule_id</p>
+      <p><%= @schedule.id %></p>
+    </p>
+  <%= form_with model: @reservation, url: reservations_path(movie_id: @schedule.movie.id, schedule_id: @schedule.id), method: :post do |r| %>
+      <p><%= r.text_field :date, value: params[:date] %></p>
+      <p><%= r.text_field :sheet_id, value: params[:sheet_id] %></p>
+      <p><%= r.text_field :schedule_id, value: params[:schedule_id] %></p>
+      <p><%= r.text_field :movie_id, value: @schedule.movie.id %></p>
+    <p>
+      <p>氏名</p>
+      <p><%= r.text_field :name, placeholder: "入力してください", required: true %></p>
+    </p>
+    <p>
+      <p>メールアドレス</p>
+      <p><%= r.text_field :email, placeholder: "入力してください", required: true %></p>
+    </p>
+    <%= r.submit "予約を確定する"%>
+  <% end %>
+</div>

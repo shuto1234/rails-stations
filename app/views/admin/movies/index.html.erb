@@ -1,0 +1,59 @@
+<h1>admin/movies#index</h1> 
+
+<%= link_to "新規登録" ,action: "new", controller: "movies" %>
+<div class="all-movie">
+  <% @movies.each do |t| %>
+    <div class="movie-card">
+      <div class="movie-img">
+        <% if t.image_url.present? %>
+          <img src="<%= t.image_url %>" alt="フリー画像">
+        <% else %>
+          <img alt ="画像無">
+        <% end %>
+      </div>
+      <div class="card-body">
+        <table>
+          <tbody>
+            <tr>
+              <th>id</th>
+              <td class="movie-inf"><%= t.id %></td>
+            </tr>
+            <tr>
+              <th>タイトル</th>
+              <td class="movie-inf"><%= link_to t.name, admin_movie_path(t.id) %></td>
+            </tr>
+            <tr>
+              <th>公開年</th>
+              <td class="movie-inf"><%= t.year %></td>
+            </tr>
+            <tr>
+              <th>映画概要</th>
+              <td class="movie-inf"><%= t.description %></td>
+            </tr>
+            <tr>
+              <th>公開情報</th>
+              <td class="movie-inf">
+                <% if t.is_showing %>公開中
+                <% else %>公開予定
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+      <% t.schedules.each do |s| %>
+        <p><%= s.start_time.strftime('%H:%M')%> ~ <%= s.end_time.strftime('%H:%M') %></p>
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%#   t.string "name", limit: 160, null: false, index: true ,comment: "映画のタイトル。邦題・洋題は一旦考えなくてOK"
+      t.string "year", limit: 45, comment: "公開年"
+      t.text "description", comment: "映画の説明文"
+      t.string "image_url", limit: 150, comment: "映画のポスター画像が格納されているURL"
+      t.boolean "is_showing", null: false, comment: "上映中かどうか"
+
+      t.timestamps %>

@@ -1,0 +1,64 @@
+<h1>Sheet#index</h1>
+
+<div class= "sheets-parent">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="7" class="screen">スクリーン</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sheet-td"></td>
+        <td class="sheet-td">1</td>
+        <td class="sheet-td">2</td>
+        <td class="sheet-td">3</td>
+        <td class="sheet-td">4</td>
+        <td class="sheet-td">5</td>
+        <td class="sheet-td"></td>
+      </tr>
+      <tr class="sheet">
+        <td class="sheet-td">A</td>
+        <% @sheetsA.each do |s |%> 
+        <td class="sheet-td"><%= s.column %></td>
+        <% end %> 
+        <td class="sheet-td">A</td>
+      </tr>
+      <tr class="sheet">
+        <td class="sheet-td">B</td>
+        <% @sheetsB.each do |s| %>
+          <td class="sheet-td"><%= s.column %></td>
+        <% end %> 
+        <td class="sheet-td">B</td>
+      </tr>
+      <tr class="sheet">
+        <td class="sheet-td">C</td>
+        <% @sheetsC.each do |s| %>
+          <td class="sheet-td"><%= s.column %></td>
+        <% end %>
+        <td class="sheet-td">C</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  <%# <table>
+    <thead>
+      <tr>
+        <td class="sheet-td">座席番号：数字-英語</td>
+        <td class="sheet-td">空席状況</td>
+        <td class="sheet-td">予約ボタン</td>
+      </tr>
+    </thead>
+    <tbody>
+    <% @sheets.each do |s| %
+      <tr>
+        <td class="sheet-td"><%= s.column %</td>
+        <td class="sheet-td"><%=  %</td>
+        <td class="sheet-td"><%=  %</td>
+        <td class="sheet-td"><%=  %</td>
+      </tr>
+    <% end %
+    </tbody>
+  </table> %>

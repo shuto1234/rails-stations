@@ -1,0 +1,71 @@
+
+<% if flash[:success] %>
+  <div class="alert alert-danger">
+    <%= flash[:success] %>
+  </div>
+  <% else %>
+  
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<h1>movies#show</h1>
+<div>
+  <div class="movie-show">
+    <div class="movie-img">
+      <% if @movie.image_url.present? %>
+          <img src="<%= @movie.image_url %>" alt="フリー画像">
+        <% else %>
+          <img src="https://thumb.ac-illust.com/6c/6c49457122b22005a8dcacaac54d2c17_t.jpeg" alt ="画像無し">
+        <% end %>
+    </div>
+    <div class="movie-info">
+      <div class="">
+        <% if  @movie.is_showing == true %>
+          <div>公開中</div>
+        <% else %>
+          <div>未公開</div>
+        <% end %>
+      </div>
+      <h2 style="border:solid black; width:100px;"><%= @movie.name %></h2>
+      <div>公開年：<%= @movie.year %></div>
+      <div><%= @movie.description %></div>
+    </div>
+  </div>
+  <div>
+    <h4>上映スケジュール</h4>
+      <% @movie.schedules.each do |s| %>
+        <table>
+            <tr>
+              <th>
+                <%= s.start_time.strftime("%H時%M分") %>～<%= s.end_time.strftime("%H時%M分") %>
+              </th>
+            </tr>
+        </table>
+      <% end %>
+  </div>
+  <div class="reservation">
+  <h2>予約ページ</h2>
+  <%#  プルダウンメニュー：1週間先まで選択可能。ある日付を選択する
+        ↓
+      プルダウンメニュー：上映スケジュールリストから1つの時刻を選択する
+        ↓
+    「座席を予約する」ボタンを押すと    /movies/:movie_id/reservationに飛ぶ
+  %>
+  <%= form_with url: reservation_movie_path(@movie), method: :get do |r| %>
+    <%# コードの説明
+      (0..6).map { |i| [Date.today.advance(days: i).strftime("%Y-%m-%d"), Date.today.advance(days: i)] }
+      Date.todayから始まり、advance(days: i)で当日から1週間先までの日付を生成します。
+      strftime("%Y-%m-%d")を使用して、表示形式を「YYYY-MM-DD」に整えています。
+      options_for_select
+      options_for_selectは、配列を受け取り、select_tagに適したオプション要素を生成します。
+      このコードで、当日から1週間先までの日付を選択できるプルダウンが作成できます。 %>
+    <p><%= r.select :date, options_for_select((0..7).map { |i| [Date.today.advance(days: i).strftime("%Y-%m-%d"), Date.today.advance(days: i)] }) %></p>
+    <p><%= r.select :schedule_id, options_for_select(@movie.schedules.map { |schedule| [schedule.start_time.strftime("%H:%M"), schedule.id] })   %></p>
+
+    <%= r.submit "座席を予約する" %>
+  <% end %>
+</div>
+
+
