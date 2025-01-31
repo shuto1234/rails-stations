@@ -1,0 +1,11 @@
+<h1>admin/schedules/edit/id</h1>
+
+<%= form_with model:@schedule, url: admin_schedule_path(@schedule.id), local:true, method: :put do |s| %>
+  <h4>開始時刻</h4>
+  <%= s.time_field :start_time %>
+  <h4>終了時刻</h4>
+  <%= s.time_field :end_time %>
+  <%= s.submit "保存" %>
+<% end %>
+
+  <%= button_to "削除", admin_schedule_path(@schedule.id), method: :delete, data: {confirm: "スケジュールを削除します。よろしいですか？"} %>

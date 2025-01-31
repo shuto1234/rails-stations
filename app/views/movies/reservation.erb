@@ -1,0 +1,71 @@
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+
+<h1>座席選択ページ</h1>
+<p>選択された日付: <%= @date %></p>
+<p>選択されたスケジュールID: <%= @schedule.id %></p>
+<p>選択されたスケジュール: <%= @schedule.start_time.strftime("%H:%M") %></p>
+<div class= "sheets-parent">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="7" class="screen">スクリーン</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sheet-td"></td>
+        <td class="sheet-td">1</td>
+        <td class="sheet-td">2</td>
+        <td class="sheet-td">3</td>
+        <td class="sheet-td">4</td>
+        <td class="sheet-td">5</td>
+        <td class="sheet-td"></td>
+      </tr>
+      <tr class="sheet">
+        <td class="sheet-td">A</td>
+        <% @sheetsA.each do |s|%> 
+        <%# 
+        url: "/movies/:movie_id/schedules/:schedule_id/reservations/new" をpahtに変更
+        この場合、new_movie_schedule_reservation_pathというパスヘルパーが使用できます。movie_idやschedule_idは動的に指定する必要がある
+          new_movie_schedule_reservation_path(movie_id: @movie.id, schedule_id: s.id)
+        movie_idには@movie.idを、schedule_idにはs.idを渡しています。
+        @movieやsがそれぞれmovieやscheduleのオブジェクトである場合に適しています。
+         %>
+        <td class="sheet-td"><%= link_to s.column, new_movie_schedule_reservation_path(
+          @movie,
+          schedule_id: @schedule.id, 
+          sheet_id: s.id,
+          date: @date) %></td>
+        <% end %> 
+        <td class="sheet-td">A</td>
+      </tr>
+      <tr class="sheet">
+        <td class="sheet-td">B</td>
+        <% @sheetsB.each do |s| %>
+          <td class="sheet-td"><%= link_to s.column, new_movie_schedule_reservation_path(
+          movie_id: @movie.id,
+          schedule_id: @schedule.id, 
+          sheet_id: s.id,
+          date: @date) %></td>
+        <% end %> 
+        <td class="sheet-td">B</td>
+      </tr>
+      <tr class="sheet">
+        <td class="sheet-td">C</td>
+        <% @sheetsC.each do |s| %>
+          <td class="sheet-td"><%= link_to s.column, new_movie_schedule_reservation_path(
+          movie_id: @movie.id,
+          schedule_id: @schedule.id, 
+          sheet_id: s.id,
+          date: @date) %></td>
+        <% end %>
+        <td class="sheet-td">C</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  

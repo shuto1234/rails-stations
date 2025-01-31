@@ -1,0 +1,43 @@
+<h1>movies#show</h1>
+<div>
+  <div class="movie-show">
+    <div class="movie-img">
+      <% if @movie.image_url.present? %>
+          <img src="<%= @movie.image_url %>" alt="フリー画像">
+        <% else %>
+          <img alt ="画像無し">
+        <% end %>
+    </div>
+    <div class="movie-info">
+      <div class="movie-id">映画id<%= link_to @movie.id ,action:"edit" %></div>
+      <div class="movie-title"><%= @movie.name %></div>
+      <div class="movie-year">公開年：<%= @movie.year %></div>
+      <div class="movie-description"><%= @movie.description %></div>
+      <table border="1">
+        <thead class="schedules-thead">
+          <tr>
+            <th><h2>id</h2></th>
+            <th><h2>映画名</h2></th>
+            <th>開始時刻</th>
+            <th>終了時刻</th>
+            <th>作成日時</th>
+            <th>更新日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @movie.schedules.each do |s| %>
+          <tr>
+            <td><%= link_to s.id ,admin_schedule_path(s.id) %></td>
+            <td><%= s.movie.name %></td>
+            <td><%= s.start_time.strftime('%H:%M') %></td>
+            <td><%= s.end_time.strftime('%H:%M') %></td>
+            <td><%= s.created_at %></td>
+            <td><%= s.updated_at %></td>
+          <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div><%= link_to "スケジュールの追加" ,action:"new" ,controller: "schedules" ,movie_id: @movie.id %></div>
+  </div>
+</div>
