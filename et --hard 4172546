@@ -1,0 +1,248 @@
+[33mfa8fcd9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mstation1/file02[m[33m, [m[1;31morigin/station2/file02[m[33m, [m[1;31morigin/station1/file02[m[33m, [m[1;31morigin/file02[m[33m, [m[1;32mstation2/file02[m[33m, [m[1;32msitaion2/file02[m[33m, [m[1;32mfile02[m[33m)[m Merge branch 'file02' into station1/file02
+[33m4172546[m station1クリア
+[33mbe613ed[m[33m ([m[1;31morigin/file01[m[33m, [m[1;32mfile01[m[33m)[m file01：24年10月から25年1月24日までの作成したファイル01（file01）を一旦ファイル01に保存
+[33mda952ad[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/2-with-admin[m[33m, [m[1;32mmain[m[33m, [m[1;32m2-with-admin[m[33m, [m[1;32m01[m[33m)[m Merge pull request #165 from yoshikawa/hotfix/mysql-v8
+[33m462ea52[m TLS通信するように変更
+[33m1d6648d[m Merge pull request #164 from yoshikawa/fix/button-tag-to-input-tag
+[33m4599c01[m Merge pull request #163 from yoshikawa/update/rails-version
+[33ma2bbb3c[m Merge pull request #162 from yoshikawa/update/user-manual
+[33mb06b3fe[m update
+[33mb5bccce[m update
+[33m52ab25b[m update README
+[33mb69b458[m buttonタグからinputタグへ変更
+[33maed29d4[m update README
+[33m6ce0e2a[m テストに必要なライブラリを追加
+[33m72d57dc[m station1が通るかを確認
+[33m1e426c7[m [修正]rails7に対応するように変更
+[33mb974f1e[m Forkについて言及
+[33mfdf0d03[m update README
+[33m976228a[m ドキュメントを修正
+[33m75c81ba[m update
+[33mb62f3f7[m update documents
+[33m1118ae4[m Merge pull request #153 from TechBowl-japan/fix/station14-rspec-syntax-error-TECHTRAIN-847-refer
+[33m3e10706[m clean: テスト全体リファクタリング
+[33m2f56e96[m modify: 意図したであろう記述へと修正
+[33mb9e1df1[m Merge pull request #152 from TechBowl-japan/fix/station10-11-sheets-to-reservation-controller-unit-test
+[33m6c3a428[m modify: 文言修正
+[33mda7d238[m modify: MoviesControllerにテストも寄せる
+[33md5281ee[m modify: リダイレクト先としてdateという変数を用いてDRY
+[33m3166e3a[m fix: /movies/:movie_id/reservationのテストをsheetsから外す
+[33m079c7bd[m modify: dateをletでまとめる
+[33me146d36[m fix: 回答を広くカバーするためorとして実装
+[33mcb2a19c[m Merge pull request #150 from TechBowl-japan/feature/modify-redirect-to-reservation-test-station-10
+[33m4c136eb[m modify:  POST /reservation/でDBのunique制約時のリダイレクトテスト
+[33m8639cfe[m Merge pull request #137 from TechBowl-japan/feature/update_readme
+[33m8d54be3[m READMEにgoogleスライドの追記と修正
+[33m985eddc[m Merge pull request #134 from TechBowl-japan/feature/modify-sheet-reservation-path
+[33m6d43463[m [MODIFY]Station名修正
+[33mfa93250[m [ADD]schedule_idがないときの挙動テスト
+[33m23cecae[m [MODIFY]席予約のpathを変更
+[33m0becad4[m Update README.md
+[33m5e145cc[m Merge pull request #128 from sivchari/fix-manifests
+[33m70bec60[m fix manifests
+[33m90d949b[m Merge pull request #126 from sivchari/add-station14-test
+[33m2faa6ef[m fix
+[33m32c82d0[m add station 14 test
+[33m518f901[m Merge pull request #123 from TechBowl-japan/feature/modifying-tag-expression-method
+[33ma0dfc06[m [MODIFY]タグの表現方法を修正
+[33m16ad0ad[m Merge pull request #116 from TechBowl-japan/feature/modify-design
+[33mf6e5d1e[m [MODIFY]ラジオボタンの有無による判定にする
+[33m29f4425[m Merge pull request #113 from TechBowl-japan/feature/add-movies-migration
+[33m4cbace1[m [ADD]必要なコマンドを追加
+[33m0d6e108[m [REMOVE]いらない記述の削除
+[33mb48c187[m [REMOVE]moviesテーブルの追加のSQL
+[33mf2bbd37[m [ADD]マイグレーションファイルの追加
+[33m42e74f3[m Merge pull request #112 from TechBowl-japan/feature/clean-all-tests
+[33mf6f8cd3[m [CLEAN]テストのリファクタリング
+[33m729c4e2[m [CLEAN]テストのリファクタリング
+[33m6f3a4bd[m Merge pull request #110 from TechBowl-japan/revert-108-dependabot/bundler/nokogiri-1.13.0
+[33mbd52bc8[m Revert "Bump nokogiri from 1.11.7 to 1.13.0"
+[33mc6ec87f[m Merge pull request #109 from TechBowl-japan/dependabot/npm_and_yarn/postcss-7.0.39
+[33m9db25d8[m Bump postcss from 7.0.35 to 7.0.39
+[33mdc20b3d[m Merge pull request #108 from TechBowl-japan/dependabot/bundler/nokogiri-1.13.0
+[33m35ff0f8[m Bump nokogiri from 1.11.7 to 1.13.0
+[33m837bb17[m Merge pull request #106 from TechBowl-japan/feature/remove-needless-test-station02
+[33m24b7fa4[m [DELETE]いらないテストの削除
+[33m5993bb1[m [MODIFY]テストをまとめる
+[33m06306ca[m [CLEAN]Station08のリファクタリング
+[33mc8349c6[m [ADD]Station07のリファクタリング
+[33m969f7a6[m Merge pull request #103 from TechBowl-japan/feature/first-clean-test
+[33m3729b46[m [CLEAN]Staion06のリファクタリング
+[33me68845d[m [MODIFY]読みやすくする
+[33m270591b[m [ADD]テストをまとめる
+[33mc34021e[m [ADD]Station5のテスト修正
+[33m7e02d69[m [CLEAN]station04のリファクタリング
+[33mf7d820f[m [MODIFY]検証のしやすい方法でテストする
+[33m5d76e06[m [MODIFY]Station03のリファクタリング
+[33m3544c4d[m [ADD]staton02のテストを整理
+[33m46b9c57[m [ADD]テストの可読性向上
+[33m8288ece[m Merge pull request #100 from TechBowl-japan/feature/add-readme-core-autocrlf
+[33me16f65e[m [ADD]説明の充実
+[33mdff8568[m [REMOVE]無駄なインデント削除
+[33mb767366[m [ADD]WindowsでContainerが立ち上がらないトラブルシューティング
+[33mf1b66b0[m Merge pull request #97 from TechBowl-japan/fix/station10-admin-schedules
+[33ma422ce5[m [MODIFY]テストのコメント修正
+[33m586ed5b[m [FIX]SchedulesControllerを管理画面用にする
+[33m31a5ffb[m Merge pull request #92 from TechBowl-japan/fix/station04-update-params
+[33m99e32bd[m [MODIFY]paramsをmovieはネスト
+[33mc72a5d1[m Merge pull request #91 from TechBowl-japan/fix/station12-test
+[33mef0b735[m [ADD]screen_spec
+[33me08aa7d[m [MODIFY]さまざまな実装方法に対応できるようにする
+[33mdf9daa6[m [REMOVE]ユーザーに起因する可能性があるテストの削除
+[33m385e9f3[m [ADD]予約に関してこれまでの仕様が満たされていることのテスト
+[33me31e44a[m [FIX]管理画面化に対応
+[33mcedb2d3[m Update README.md
+[33mc438d3c[m Merge pull request #90 from TechBowl-japan/feature/add-README-about-rspec-errors
+[33m69d50b7[m Update README.md
+[33me05708b[m Merge pull request #88 from ug23/main
+[33md285e3c[m Merge pull request #89 from TechBowl-japan/fix/station11
+[33m71d980f[m Update reservations_controller_spec.rb
+[33mf54d388[m refactor: トラブルシューティング周りのドキュメントの構造を見直し
+[33md154759[m RSpecだけを実行する方法について記述
+[33mb6e5775[m 誤字と不足している記述の修正
+[33m19cdd7c[m Merge pull request #87 from TechBowl-japan/feature/remove-rspec-generator
+[33m85b9865[m [REMOVE]generateした際にテスト用のファイルが作成されないようにする
+[33md57d308[m Merge pull request #84 from TechBowl-japan/feature/add-railway-test
+[33m49305c5[m [ADD]テストでのログを全てファイルに出力するようにする
+[33md1369e5[m Merge pull request #83 from TechBowl-japan/feature/spread-test-supported-range
+[33mf97b547[m [MODIFY]letの使い分けの修正
+[33mdcf8aec[m Merge pull request #80 from TechBowl-japan/dependabot/bundler/puma-5.5.1
+[33m48e9d34[m Bump puma from 5.3.2 to 5.5.1
+[33mb93980a[m Merge pull request #78 from TechBowl-japan/remove-station4-update-change-test
+[33m348e39a[m [UPDATE]yarnのアップデート
+[33m153dc39[m [DELETE]必要のないテストの削除
+[33m6a47b87[m Merge pull request #77 from TechBowl-japan/fix/cli-version-v018
+[33mff8c986[m Bump @techtrain/cli-railway to v0.1.8
+[33mf276128[m Merge pull request #75 from TechBowl-japan/dependabot/npm_and_yarn/url-parse-1.5.3
+[33meb5d484[m Bump url-parse from 1.5.1 to 1.5.3
+[33mbe21ee7[m Merge pull request #74 from TechBowl-japan/dependabot/npm_and_yarn/tar-6.1.11
+[33mce0973a[m Bump tar from 6.1.5 to 6.1.11
+[33m8fe5b7c[m Merge pull request #73 from TechBowl-japan/fix/separate-admin-movie
+[33m44686d8[m [MODIFY]コメント修正
+[33m7c8e9b6[m [FIX]管理画面はadminで処理するようにする
+[33m854717c[m Update README.md
+[33mf9193a8[m Merge pull request #70 from TechBowl-japan/fix/station12-cli-20210818
+[33mbdc6c61[m [ADD]いらないspecファイルを削除
+[33mc8edcff[m [CLEAN]station.json整理
+[33m220e777[m [CLEAN]stationを必要な分まで整理
+[33m0bcff01[m [ADD]station12をrailway.jsonnに追加
+[33maefb554[m Merge branch 'main' of https://github.com/TechBowl-japan/rails-stations
+[33m738e301[m Merge pull request #67 from TechBowl-japan/dependabot/bundler/addressable-2.8.0
+[33mdd362ab[m Merge pull request #68 from TechBowl-japan/dependabot/npm_and_yarn/tar-6.1.5
+[33m330c03d[m Bump tar from 6.1.0 to 6.1.5
+[33mad446c8[m first commit
+[33m0bc6ad4[m Bump addressable from 2.7.0 to 2.8.0
+[33ma0d69dc[m Merge pull request #66 from TechBowl-japan/fix/update-ruby-version
+[33m0b68c69[m [ADD]コンテナ起動時にバージョンが出力されるようにする
+[33mb9346e8[m [FIX]バージョンを2.7.3で統一
+[33m29bb091[m [MODIFY]lockfileをrubyのバージョンアップに合わせる
+[33m90655b5[m [UPDATE]rubyのバージョンアップ
+[33ma3f2bd7[m Merge pull request #64 from TechBowl-japan/dependabot/bundler/addressable-2.8.0
+[33m7cd1a57[m Bump addressable from 2.7.0 to 2.8.0
+[33m7ad12af[m Update README.md
+[33m3432d36[m Update README.md
+[33me6e5ad4[m Update Dockerfile
+[33m751a1a2[m Merge pull request #62 from TechBowl-japan/fix/fix-type-error-61
+[33m7eb2522[m Fix type error
+[33mf72be7e[m Update Dockerfile
+[33mf8932cd[m Update README.md
+[33m1bc3f4a[m Update README.md
+[33m8d89e75[m Update README.md
+[33m7e2e7c5[m Update README.md
+[33mebf7dc7[m Merge pull request #59 from TechBowl-japan/fix/remove-package-lock-json
+[33m6b8d75d[m Remove package-lock.json
+[33m4290e59[m Merge branch 'main' of https://github.com/TechBowl-japan/rails-stations
+[33m6bd2286[m Add semicolon
+[33mba7df86[m Update README.md
+[33m37dfc72[m Merge pull request #57 from TechBowl-japan/feature/change-let-to-let-55
+[33mb007aea[m Delete matchers not_inlude
+[33m0cd7131[m Change let to let!
+[33m53ecf48[m Merge pull request #54 from TechBowl-japan/feature/add-migrations
+[33meaaf1ec[m Add bundle volume
+[33m62fcc83[m Update README.md
+[33m4177751[m Update README.md
+[33m067e976[m Update README.md
+[33m4f9a5b2[m Merge pull request #53 from TechBowl-japan/feature/add-app_development.movies-table
+[33m7c2ec6e[m Add comment
+[33mdf4b392[m Add app_development.movies table
+[33m5587556[m Fix script for yarn
+[33m9ecebd0[m Remove extra install to build
+[33m1336d21[m Merge pull request #52 from TechBowl-japan/feature/add-migrations
+[33m4db6c9e[m Update README.md
+[33m6ea5bc8[m Update README.md
+[33m81e36cd[m Add options for docker-compose.yml
+[33m39317ed[m Add infra direcotry to build docker containers
+[33m60698b8[m Remove web docker file in root directory
+[33m714ffb5[m Add create database ddl in init sql
+[33m9a4e803[m Remove extra settings
+[33m9ca599f[m Fix init directory options
+[33m0084034[m Add ddl for building docker images
+[33m3f3e84f[m Add to build mysql
+[33m736ba9a[m Update README.md
+[33m0458cf4[m Update README.md
+[33mcf0dfc0[m Update README.md
+[33m830db99[m Update Dockerfile
+[33mda12e3a[m Merge pull request #50 from TechBowl-japan/feature/modify-describe
+[33md9cfdb3[m Modify stationNo. 11
+[33md605007[m Modify stationNo.
+[33md7622e2[m Modify station No.
+[33mf3ce6d1[m Modify Relation test describe
+[33m4b22936[m Modify describe
+[33m6672b76[m Merge pull request #48 from TechBowl-japan/feature/connection-cli-20
+[33m7055a32[m Update .gitignore
+[33m734785f[m Add scripts for cli
+[33me5a8a5e[m first commit
+[33me4eb311[m first commit
+[33m5c16288[m first commit
+[33m9b477b8[m first commit
+[33m4713419[m first commit
+[33m137cb25[m first commit
+[33m546825c[m first commit
+[33m660ef46[m Modify specFile
+[33m0f32c1c[m Modify railwayId
+[33m13de423[m Add simple-git-hooks
+[33mf6a7273[m Modify dir name
+[33m40452cf[m Add package-lock.json
+[33m12b62b6[m Delete ruby version
+[33mf680abc[m Set cli and scripts
+[33m0ce4e75[m Recreate Gemfile.lock
+[33m00c9b9e[m Set node version
+[33me757859[m Add .techtrain/config.toml
+[33mfc50cf6[m Add for railway cli tests
+[33mfa88e84[m Merge pull request #47 from TechBowl-japan/feature/add-station18-test-18
+[33mb405acf[m Add Station18 tests
+[33m1a1dd7f[m Merge pull request #46 from TechBowl-japan/feature/add-station17-test-17
+[33mda6b0fd[m Add Station17 test
+[33m69d73e8[m Merge pull request #45 from TechBowl-japan/feature/add-station16-test-16
+[33mc3776b6[m Add station16 test
+[33m2dc9aaf[m Modify describe text
+[33ma9de7b1[m Merge pull request #44 from TechBowl-japan/feature/add-station15-test-15
+[33m4dc5e4d[m Merge pull request #42 from TechBowl-japan/dependabot/npm_and_yarn/dns-packet-1.3.4
+[33mbd6abc0[m Add Station15 UsersController test
+[33m830a455[m Modify describe text
+[33m67f6125[m Merge pull request #43 from TechBowl-japan/feature/add-station13-test-13
+[33md86b760[m Add Station13 test
+[33m845f994[m Bump dns-packet from 1.3.1 to 1.3.4
+[33md666663[m Merge pull request #41 from TechBowl-japan/feature/add-station12-test-12
+[33ma803921[m Add Station12 ReservationsController tests
+[33m3ae95ba[m Add Station12 Reservation model tests
+[33m079c421[m Add station11 tests
+[33m73bdc5a[m Config Bullet
+[33m1336988[m Install Bullet
+[33m2e6c383[m Merge pull request #40 from TechBowl-japan/feature/add-station10-test-10
+[33mfaca485[m Add station10 ReservationsController tests
+[33m7a6c0ad[m Modify sheets test
+[33mce62a47[m Add station10 Reservation email validation test
+[33m3ef8c2e[m Add reservation's FactoryBot
+[33meb7febe[m Merge pull request #36 from TechBowl-japan/dependabot/bundler/puma-5.3.1
+[33m5c265a1[m Merge pull request #39 from TechBowl-japan/dependabot/bundler/nokogiri-1.11.5
+[33me18f7b1[m Bump nokogiri from 1.11.3 to 1.11.5
+[33mc94b0e5[m Add station10 sheets tests
+[33me94b4b1[m Add station10 movies show actions test
+[33m0e59fe3[m Merge pull request #38 from TechBowl-japan/feature/add-station9-test-9
+[33m6437fb3[m Add station9 Schedules destroy actions test
+[33mf105b84[m Add station9 SchedulesController edit action test
+[33m3370585[m Add station9 SchedulesController put test
+[33m906235f[m Add station9 movies controller test
+[33m58e2e98[m Clean instance variable
+[33m15122f3[m Bump puma from 5.2.2 to 5.3.1
