@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<h1>新規登録</h1>
+
+<% if @movie.errors.any? %>
+  <%= @movie.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @movie.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%# @movie は Movie.new %>
+<%= form_with model:@movie, url:'/admin/movies', local:true do |f| %>
+  <div>
+    <p>タイトル</p>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <p>公開年</p>
+    <%= f.date_field :year %>
+  </div>
+  <div>
+    <p>概要</p>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <p>画像URL</p>
+    <%= f.text_field :image_url %>
+  </div>
+  <div>
+    <p>上映中</p>
+    <%= f.radio_button :is_showing, "true" %>
+    <%= f.label :is_showing_true, "上映中" %>
+    <%= f.radio_button :is_showing, "false" %>
+    <%= f.label :is_showing_false, "上映予定" %>
+  </div>
+  <%= f.submit "送信" %>
+<% end %>

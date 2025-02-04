@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'movies/show'
 
   get 'admin/movies' => 'admin/movies#index'
+  get 'admin/movies/new'
+  post 'admin/movies' => 'admin/movies#create'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
