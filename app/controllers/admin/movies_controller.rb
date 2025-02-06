@@ -32,6 +32,14 @@ class Admin::MoviesController < ApplicationController
       render :edit
     end
   end 
+  def destroy
+    # 1.データを1件取得
+    movie = Movie.find(params[:id])
+    # 2.データを削除
+    movie.destroy
+    # 3.任意の画面へリダイレクト
+    redirect_to admin_movies_index_path
+  end
 
   private
   
