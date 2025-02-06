@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <h1>映画一覧ページ</h1>
+<h4><%= link_to "新規登録画面", admin_movies_new_path %></h4>
 <table>
   <tr>
     <th>タイトル</th>
@@ -12,7 +13,8 @@
   </tr>
   <% @movies.each do |movie| %>
     <tr>
-      <td><%= movie.name %></td>
+      <td><%= link_to movie.name, admin_movies_edit_path(movie.id) %></td>
+      <td><%= movie.id %></td>
       <td><%= movie.year %></td>
       <td><%= movie.description %></td>
       <td><img src=<%= movie.image_url %>></td>

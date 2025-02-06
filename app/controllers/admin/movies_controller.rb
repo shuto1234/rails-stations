@@ -17,6 +17,21 @@ class Admin::MoviesController < ApplicationController
       render :new
     end
   end
+  def edit
+    @movieEdit = Movie.find(params[:id])
+  end
+  def update
+    # 1.データを編集するためのインスタンス変数作成
+    @movieEdit = Movie.find(params[:id])
+    # 2.編集したデータをデータベースに保存するためにupdateメソッド
+    if @movieEdit.update(movie_params)
+      # 3.任意の画面へリダイレクト
+      redirect_to admin_movies_index_path
+    else
+      # 4.updateできなかったときに、admin::movies_controllerのeditのviewに飛ぶ
+      render :edit
+    end
+  end 
 
   private
   

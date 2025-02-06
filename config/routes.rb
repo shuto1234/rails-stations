@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   root to: 'movies#index'
   get 'movies/show'
 
-  get 'admin/movies' => 'admin/movies#index'
-  get 'admin/movies/new'
-  post 'admin/movies' => 'admin/movies#create'
-
+  get 'admin/movies' => 'admin/movies#index', as: 'admin_movies_index'
+  get 'admin/movies/new', as: 'admin_movies_new'
+  post 'admin/movies' => 'admin/movies#create', as: 'admin_movies_create'
+  get 'admin/movies/:id/edit' => 'admin/movies#edit', as: 'admin_movies_edit'
+  put 'admin/movies/:id' => 'admin/movies#update', as: 'admin_movies_update'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
