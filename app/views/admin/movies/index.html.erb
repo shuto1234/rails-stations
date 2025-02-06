@@ -4,6 +4,8 @@
 <table>
   <tr>
     <th>タイトル</th>
+    <th>削除</th>
+    <th>データid</th>
     <th>公開年</th>
     <th>概要</th>
     <th>画像URL</th>
@@ -14,6 +16,7 @@
   <% @movies.each do |movie| %>
     <tr>
       <td><%= link_to movie.name, admin_movies_edit_path(movie.id) %></td>
+      <td><%= link_to "削除", admin_movies_destroy_path(movie.id), method: :delete %></td>
       <td><%= movie.id %></td>
       <td><%= movie.year %></td>
       <td><%= movie.description %></td>
