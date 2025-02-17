@@ -1,8 +1,49 @@
+<!DOCTYPE html>
+<%= stylesheet_link_tag "application", :media => "all" %>
 <h1>映画一覧ページ</h1>
+<div class="search_form">
+  <%= form_with model: @movies, url: movies_path, method: :get, local: true do |f| %>
+    <div class="is_showing">
+      <%= f.radio_button :search_showing, :all , checked: true %>
+      <%= f.label :search_showing, "全て", value: :all%>
+      <%= f.radio_button :search_showing, true %>
+      <%= f.label :search_showing, "上映中", value: true%>
+      <%= f.radio_button :search_showing, false %>
+      <%= f.label :search_showing, "上映予定", value: false%>
+    </div>
+    <%= f.text_field :keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+<div class="cards">
 <% @movies.each do |movie| %>
-  <div><%= movie.name %></div>
-  <div><%= movie.year %></div>
-  <div><%= movie.description %></div>
-  <div><%= movie.image_url %></div>
-  <div><%= movie.is_showing %></div>
+  <article class="card">
+    <img src="<%= movie.image_url%>"/>
+    <table class="content">
+      <tr>
+        <th>タイトル</th>
+        <td><%= movie.name %></td>
+      </tr>
+      <tr>
+        <th>公開年</th>
+        <td><%= movie.year %></td>
+      </tr>
+      <tr>
+        <th>上映中</th>
+        <td>
+          <% if movie.is_showing == true %>
+            上映中
+          <%  else movie.is_showing == false %>
+            上映予定
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>概要</th>
+        <td><%= movie.description %></td>
+      </tr>
+    </table>
+  </article>
 <% end %>
+</div>
+

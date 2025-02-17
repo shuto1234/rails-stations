@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3列に並べる */
+  gap: 16px; /* カード間の隙間 */
+}
+.card {
+  border: 1px solid ;
+  padding: 16px;
+  background-color: #fff;
+}
+.content{
+  text-align: start;
+}
+th{
+  text-align: start;
+}
+

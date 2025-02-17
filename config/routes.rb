@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'movies#index'
+  get '/' => 'movies#index', as: 'movies'
   get 'movies/show'
 
   get 'admin/movies' => 'admin/movies#index', as: 'admin_movies_index'
