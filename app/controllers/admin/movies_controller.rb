@@ -11,7 +11,7 @@ class Admin::MoviesController < ApplicationController
     # 2.データをデータベースに保存するためのsaveメソッド
     if @movie.save
       # 3.任意の  画面へリダイレクト
-      redirect_to admin_movies_path
+      redirect_to admin_movies_index_path
     else
       # 4.saveできなかったときに、admin::movies_controllerのnewのviewに飛ぶ
       render :new
