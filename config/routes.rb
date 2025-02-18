@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'movies#index'
   get '/' => 'movies#index', as: 'movies'
-  get 'movies/show'
+  get 'movies/:id' => 'movies#show', as: 'movies_id'
 
   get 'admin/movies' => 'admin/movies#index', as: 'admin_movies_index'
   get 'admin/movies/new', as: 'admin_movies_new'

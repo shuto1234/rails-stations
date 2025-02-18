@@ -31,3 +31,29 @@ th{
   text-align: start;
 }
 
+.shows {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.title-card {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  padding: 10px;
+  margin: 10px;
+  background-color: azure;
+  text-align: center
+}
+
+.description{
+  background-color: azure;
+  padding: 10px;
+  margin: 10px;
+}
+
+.schedule-head {
+  background-color: azure;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}

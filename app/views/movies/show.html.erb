@@ -1,2 +1,30 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<%= stylesheet_link_tag "application", :media => "all" %>
+<h1>映画詳細ページ</h1>
+<div class="movie-page">
+    <div class="shows">
+      <div class="show-image">
+        <img src="<%= @movieShow.image_url%>"/>
+      </div>
+      <div class="show">
+        <div class="title-card">
+          <div>
+            <% if @movieShow.is_showing == true %>
+              公開中
+            <% else %>
+              公開予定
+            <% end %>
+          </div>
+          <h4><%= @movieShow.name %></h4>
+        </div>
+        <div class="description"><%= @movieShow.year %></div>
+        <div class="description"><%= @movieShow.description %></div>
+      </div>
+    </div>
+    <div class="movie-schedules">
+      <h4 class="schedule-head">上映スケジュール</h4>
+      <div class="movie-schedule">
+        <%= %>
+        <%%>
+      </div>
+    </div>
+</div>
