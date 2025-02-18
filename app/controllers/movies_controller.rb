@@ -50,6 +50,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @movieShow = Movie.find(params[:id])
   end
 
   # private
