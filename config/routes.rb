@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'admin/movies/:id/edit' => 'admin/movies#edit', as: 'admin_movies_edit'
   put 'admin/movies/:id' => 'admin/movies#update', as: 'admin_movies_update'
   delete 'movies/:id' => 'admin/movies#destroy', as: 'admin_movies_destroy'
+
+  get 'sheets' => 'sheets#index', as: 'sheets'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

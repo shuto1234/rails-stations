@@ -1,0 +1,35 @@
+<h1>座席予約画面</h1>
+
+<div class= "sheets-parent">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="7" class="screen">スクリーン</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class="sheet">
+        <% @sheetsA.each do |s|%> 
+        <td class="sheet-td">
+          <%= link_to "a-#{s.column}" %>
+        </td>
+        <% end %> 
+      </tr>
+      <tr class="sheet">
+        <% @sheetsB.each do |s| %>
+          <td class="sheet-td">
+          <%= link_to "b-#{s.column}" %>
+        </td>
+        <% end %> 
+      </tr>
+      <tr class="sheet">
+        <% @sheetsC.each do |s| %>
+          <td class="sheet-td">
+          <%= link_to "c-#{s.column}" %>
+        </td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
