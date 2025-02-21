@@ -1,0 +1,15 @@
+<h1>スケジュール編集</h1>
+<% if @scheduleEdit.errors.any? %>
+  <%= @scheduleEdit.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @scheduleEdit.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<div>映画ID<%= @scheduleEdit.movie_id %></div>
+<%= form_with model: @scheduleEdit, url: admin_schedules_update_path, local: true, method: :put do |f| %>
+  <%= f.time_field :start_time %>
+  <%= f.time_field :end_time %>
+  <%= f.submit "送信" %>
+<% end %>

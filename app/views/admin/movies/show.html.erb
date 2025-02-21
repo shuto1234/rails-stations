@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag "application", :media => "all" %>
+<h1>映画詳細ページ</h1>
+<div><%= link_to "編集画面", admin_movies_edit_path(@movieShow.id) %></div>
+<div><%= link_to "スケジュール登録画面", admin_schedules_new_path(@movieShow.id) %></div>
+<div class="movie-page">
+    <div class="shows">
+      <div class="show-image">
+        <img src="<%= @movieShow.image_url%>"/>
+      </div>
+      <div class="show">
+        <div class="title-card">
+          <div>
+            <% if @movieShow.is_showing == true %>
+              公開中
+            <% else %>
+              公開予定
+            <% end %>
+          </div>
+          <h4><%= @movieShow.name %></h4>
+        </div>
+        <div class="description"><%= @movieShow.year %></div>
+        <div class="description"><%= @movieShow.description %></div>
+      </div>
+    </div>
+    <div class="movie-schedules">
+      <h4 class="schedule-head">上映スケジュール</h4>
+      <div class="movie-schedule">
+        <table>
+          <tr>
+            <th>開始時刻</th>
+            <th>終了時刻</th>
+            <th>削除</th>
+            <th>スケジュールID</th>
+          </tr>
+          <% @movieSchedules.each do |f| %>
+          <tr>
+            <td><%= f.start_time.strftime("%H%M") %></td>
+            <td><%= f.end_time.strftime("%H%M") %></td>
+            <td><%= button_to "削除", admin_schedules_destroy_path(f.id), method: :delete %></td>
+            <td><%= link_to f.id, admin_schedules_edit_path(f.id) %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+</div>

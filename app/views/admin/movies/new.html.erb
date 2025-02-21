@@ -11,7 +11,7 @@
 <% end %>
 
 <%# @movie は Movie.new %>
-<%= form_with model:@movie, url:'/admin/movies', local:true do |f| %>
+<%= form_with model:@movie, url: admin_movies_create_path, local:true do |f| %>
   <div>
     <p>タイトル</p>
     <%= f.text_field :name %>
@@ -29,11 +29,10 @@
     <%= f.text_field :image_url %>
   </div>
   <div>
-    <p>上映中</p>
-    <%= f.radio_button :is_showing, "true" %>
-    <%= f.label :is_showing_true, "上映中" %>
-    <%= f.radio_button :is_showing, "false" %>
-    <%= f.label :is_showing_false, "上映予定" %>
+    <p>上映情報</p>
+    <%= f.check_box :is_showing, {}, true, false %> 上映中
+    <!-- チェックボックスが未選択の場合でも、'false' を送信するための隠しフィールド。trueが選択された場合はtrueを送る -->
+    <%= f.hidden_field :is_showing, value: false %>
   </div>
   <%= f.submit "送信" %>
 <% end %>

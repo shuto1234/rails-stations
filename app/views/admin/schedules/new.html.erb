@@ -1,0 +1,7 @@
+<h1>スケジュール登録</h1>
+<div>映画ID<%= params[:id] %></div>
+<%= form_with model: @scheduleNew, url: admin_schedules_create_path, local: true, method: :post do |f| %>
+  <%= f.time_field :start_time %>
+  <%= f.time_field :end_time %>
+  <%= f.submit "送信" %>
+<% end %>

@@ -1,0 +1,22 @@
+<h1>スケジュール</h1>
+<table>
+<tr>
+    <th>映画Id</th>
+    <th>映画タイトル</th>
+    <th>開始時刻</th>
+    <th>終了時刻</th>
+    <th>カレンダーId</th>
+    <th>削除</th>
+  </tr>
+<% @schedules.each do |f| %>
+  <tr>
+    <td><%= f.movie_id %></td>
+    <%# fにはscheduleのデータが入り、f.movieとすることで、関連付けられたMovieのデータを使うことができる。 %>
+    <td><%= f.movie.name %></td>
+    <td><%= f.start_time.strftime("%H%M") %></td>
+    <td><%= f.end_time.strftime("%H%M") %></td>
+    <td><%= link_to f.id, admin_schedules_edit_path(f.id) %></td>
+    <td><%= button_to "削除", admin_schedules_destroy_path(f.id), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
