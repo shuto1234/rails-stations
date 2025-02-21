@@ -2,13 +2,21 @@ class Admin::MoviesController < ApplicationController
   def index
     @movies = Movie.all
   end
+  def show
+    @movieShow = Movie.find(params[:id])
+    @movieSchedules = @movieShow.schedules
+  end
   def new
     @movie = Movie.new
   end
   def create
+    puts params[:movie] 
+    puts "Params received: #{params[:movie].inspect}" 
     # 1.データを新規登録するためのインスタンス変数作成
     @movie = Movie.new(movie_params)
     # 2.データをデータベースに保存するためのsaveメソッド
+    
+    #Ex:- :null => false
     if @movie.save
       # 3.任意の  画面へリダイレクト
       redirect_to admin_movies_index_path
