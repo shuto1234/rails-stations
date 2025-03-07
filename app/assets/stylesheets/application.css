@@ -57,3 +57,10 @@ th{
   margin: 10px;
   text-align: center;
 }
+
+.schedule-form-head {
+  background-color: azure;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}

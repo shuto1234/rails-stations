@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag "application", :media => "all" %>
 <h1>映画詳細ページ</h1>
+<% if @movieShow.present? %>
 <div class="movie-page">
     <div class="shows">
       <div class="show-image">
@@ -23,8 +24,46 @@
     <div class="movie-schedules">
       <h4 class="schedule-head">上映スケジュール</h4>
       <div class="movie-schedule">
-        <%= %>
-        <%%>
+        <table>
+          <tr>
+            <th>開始時刻</th>
+            <th>終了時刻</th>
+          </tr>
+          <% @schedules.each do |f| %>
+          <tr>
+            <td><%= f.start_time.strftime("%H%M") %></td>
+            <td><%= f.end_time.strftime("%H%M") %></td>
+          </tr>
+          <% end %>
+        </table>
       </div>
     </div>
+    <div > 
+      <h4 class="schedule-form-head">予約フォーム</h4>
+      <%= form_with url: reservation_sheets_path(@movieShow), method: :get, local: true do |f| %>
+        <h6>日付を選択</h6>
+        <div>
+          <%= f.select :date,
+            options_for_select(@dates.map {|date| [date.strftime("%Y-%m-%d (%a)"), date]})
+          %> 
+        </div>
+        <h6>時間を選択</h6>
+        <div>
+          <%# <%= f.collection_select :schedule_id, #フォームのフィールド名（送信時のパラメータ名）
+            @movieShow.schedules.order(:start_time), # start_time で昇順に並べ替え 選択肢のデータソース
+            :id, # フォームで送信される値（value）
+            ->(schedule) {"#{schedule.start_time.strftime('%H:%M')} ~ #{schedule.end_time.strftime('%H:%M')} scheduleのID#{schedule.id}"}, #選択肢の表示名
+            { prompt: "時間を選んでください" }
+          %> 
+          <%= f.select :schedule_id, #フォームのフィールド名（送信時のパラメータ名）
+            options_for_select(@schedules.order(:start_time).map {|schedule| ["#{schedule.start_time.strftime('%H:%M')} ~ #{schedule.end_time.strftime('%H:%M')} scheduleのID#{schedule.id}", schedule.id]}), 
+            include_blank: "時間を選んでください" 
+          %>
+        </div>
+        <div><%= f.submit "座席を予約する" %></div>
+      <% end %>
+    </div>
 </div>
+<% else %>
+<p>映画が見つかりません</p>
+<% end %>
