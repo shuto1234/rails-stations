@@ -2,6 +2,17 @@ Rails.application.routes.draw do
   root to: 'movies#index'
   get '/' => 'movies#index', as: 'movies'
   get 'movies/:id' => 'movies#show', as: 'movies_id'
+  get 'movies/:id/reservation' => 'movies#reservation', as: 'reservation_sheets'
+
+
+  get 'movies/:movie_id/schedules/:schedule_id/reservations/new' => 'reservations#new', as: 'reservations_new'
+  post 'reservations' => 'reservations#create', as: 'reservations_create'
+
+  
+  get 'sheets' => 'sheets#index', as: 'sheets'
+
+# config/routes.rb
+resources :reservations, only: [:create] 
 
   get 'admin/movies' => 'admin/movies#index', as: 'admin_movies_index'
   get 'admin/movies/new', as: 'admin_movies_new'
@@ -11,6 +22,7 @@ Rails.application.routes.draw do
   put 'admin/movies/:id' => 'admin/movies#update', as: 'admin_movies_update'
   delete 'movies/:id' => 'admin/movies#destroy', as: 'admin_movies_destroy'
 
+  
   get 'admin/schedules' => 'admin/schedules#index', as: 'admin_schedules'
   get 'admin/movies/:id/schedules/new' => 'admin/schedules#new', as: 'admin_schedules_new'
   post 'admin/movies/:id/schedules' => 'admin/schedules#create', as: 'admin_schedules_create'
@@ -18,7 +30,6 @@ Rails.application.routes.draw do
   put 'admin/schedules/:id' => 'admin/schedules#update', as: 'admin_schedules_update'
   delete 'admin/schedules/:id' => 'admin/schedules#destroy', as: 'admin_schedules_destroy'
 
-  get 'sheets' => 'sheets#index', as: 'sheets'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

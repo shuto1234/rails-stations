@@ -1,0 +1,58 @@
+<h1>座席予約画面</h1>
+<div class= "sheets-parent">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="7" class="screen">スクリーン</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class="sheet">
+        <% @sheetsA.each do |s|%> 
+        <td class="sheet-td">
+          <%= link_to "a-#{s.column},#{s.id}", 
+          # "/movies/#{params[:id]}/schedules/#{@scheduleID.id}/reservations/new"
+           reservations_new_path(
+              movie_id: params[:id],
+              schedule_id: params[:schedule_id],
+              date: params[:date],
+              sheet_id: s.id
+            )
+          %>
+        </td>
+        <% end %> 
+      </tr>
+         <tr class="sheet">
+        <% @sheetsB.each do |s|%> 
+        <td class="sheet-td">
+          <%= link_to "#{s.row}-#{s.column},#{s.id}", 
+          # "/movies/#{params[:id]}/schedules/#{@scheduleID.id}/reservations/new"
+           reservations_new_path(
+              movie_id: params[:id],
+              schedule_id: params[:schedule_id],
+              date: params[:date],
+              sheet_id: s.id
+            )
+          %>
+        </td>
+        <% end %> 
+      </tr>
+         <tr class="sheet">
+        <% @sheetsC.each do |s|%> 
+        <td class="sheet-td">
+          <%= link_to "#{s.row}-#{s.column},#{s.id}", 
+          # "/movies/#{params[:id]}/schedules/#{@scheduleID.id}/reservations/new"
+           reservations_new_path(
+              movie_id: params[:id],
+              schedule_id: params[:schedule_id],
+              date: params[:date],
+              sheet_id: s.id
+            )
+          %>
+        </td>
+        <% end %> 
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -51,10 +51,27 @@ class MoviesController < ApplicationController
 
   def show
     @movieShow = Movie.find(params[:id])
+    @schedules = @movieShow.schedules
+    @dates = (Date.today..Date.today + 7.days).to_a
+    @reservationNew = Reservation.new
+
+    if @movieShow.blank?
+      render :index
+    end
   end
 
-  # private
-  # def movie_params
-  #   params.require(:movie).permit(:keyword, :search_showing)
-  # end
+  def reservation
+
+    if params[:date].blank? || params[:schedule_id].blank?
+      redirect_to movies_id_path(params[:id])
+    end 
+    
+    @sheets = Sheet.all
+    @sheetsA = Sheet.where(row: 'a')
+    @sheetsB = Sheet.where(row: 'b')
+    @sheetsC = Sheet.where(row: 'c')
+
+
+  end
+
 end

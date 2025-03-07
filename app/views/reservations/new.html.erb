@@ -1,0 +1,29 @@
+<h1>座席予約画面</h1>
+<% if @reservation.errors.any? %>
+  <%= @reservation.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @reservation.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @reservation, url: reservations_create_path(movie_id: params[:movie_id], schedule_id: params[:schedule_id], date: params[:date], sheet_id: params[:sheet_id]), local: true do |f| %>
+  <div>movie_id</div>
+  <div><%= params[:movie_id] %></div>
+  <div><%= f.text_field :movie_id, value: params[:movie_id], hidden: true %></div>
+  <div>schedule_id</div>
+  <div><%= params[:schedule_id] %></div>
+  <div><%= f.text_field :schedule_id, value: params[:schedule_id],hidden: true %></div>
+  <div>sheet_id</div>
+  <div><%= params[:sheet_id] %></div>
+  <div><%= f.text_field :sheet_id, value: params[:sheet_id], hidden: true %></div>
+  <div>date</div>
+  <div><%= params[:date] %></div>
+  <div><%= f.date_field :date, value: params[:date], hidden: true %></div>
+  <div>名前</div>
+  <div><%= f.text_field :name %></div>
+  <div>Email</div>
+  <div><%= f.email_field :email %></div>
+  <div><%= f.submit "座席を予約する" %></div>
+<% end %>
