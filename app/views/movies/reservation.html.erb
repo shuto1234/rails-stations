@@ -1,58 +1,101 @@
-<h1>座席予約画面</h1>
-<div class= "sheets-parent">
-  <table>
-    <thead>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%= stylesheet_link_tag 'application', media: "all" %>
+</head>
+<h1>座席の選択</h1>
+<h5>選択中の映画</h5>
+<div><%= @movieShow.name%></div>
+<h5>選択中の日時</h5>
+<div>
+  <%= 
+    "#{params[:date].to_date.strftime('%m月%d日')}#{@day_of_week} |
+    上映時間：#{@schedule.start_time.strftime('%H:%M')} |
+    終了時間：#{@schedule.end_time.strftime('%H:%M')}" 
+  %>
+</div>
+<h5>座席の選択</h5>
+<div class="container">
+  <div class="screen-name">
+    <h4>スクリーン１</h4>
+  </div>
+  <div class="select-sheets">
+    <table>
       <tr>
-        <th colspan="7" class="screen">スクリーン</th>
+        <th></th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th></th>
       </tr>
-    </thead>
-    <tbody>
-      
-      <tr class="sheet">
+      <tr>
+        <td>A</td>
         <% @sheetsA.each do |s|%> 
-        <td class="sheet-td">
-          <%= link_to "a-#{s.column},#{s.id}", 
-          # "/movies/#{params[:id]}/schedules/#{@scheduleID.id}/reservations/new"
-           reservations_new_path(
-              movie_id: params[:id],
-              schedule_id: params[:schedule_id],
-              date: params[:date],
-              sheet_id: s.id
-            )
-          %>
-        </td>
-        <% end %> 
+          <% if s.reservations.exists?(date: params[:date]) %>
+            <td class="sheet-color2">
+              <%= "a-#{s.column}" %>
+            </td>
+          <% else %>
+            <td class="sheet-color">
+              <%= link_to "a-#{s.column}", 
+                reservations_new_path(
+                    movie_id: params[:id],
+                    schedule_id: params[:schedule_id],
+                    date: params[:date],
+                    sheet_id: s.id
+                )
+              %>
+            </td>
+          <% end %> 
+        <% end %>
+        <td>A</td>
       </tr>
-         <tr class="sheet">
+      <tr>
+        <td>B</td>
         <% @sheetsB.each do |s|%> 
-        <td class="sheet-td">
-          <%= link_to "#{s.row}-#{s.column},#{s.id}", 
-          # "/movies/#{params[:id]}/schedules/#{@scheduleID.id}/reservations/new"
-           reservations_new_path(
-              movie_id: params[:id],
-              schedule_id: params[:schedule_id],
-              date: params[:date],
-              sheet_id: s.id
-            )
-          %>
-        </td>
-        <% end %> 
+          <% if s.reservations.exists?(date: params[:date]) %>
+            <td class="sheet-color2">
+              <%= "b-#{s.column}" %>
+            </td>
+          <% else %>
+            <td class="sheet-color">
+              <%= link_to "b-#{s.column}", 
+                reservations_new_path(
+                    movie_id: params[:id],
+                    schedule_id: params[:schedule_id],
+                    date: params[:date],
+                    sheet_id: s.id
+                )
+              %>
+            </td>
+          <% end %> 
+        <% end %>
+        <td>B</td>
       </tr>
-         <tr class="sheet">
+      <tr>
+        <td>C</td>
         <% @sheetsC.each do |s|%> 
-        <td class="sheet-td">
-          <%= link_to "#{s.row}-#{s.column},#{s.id}", 
-          # "/movies/#{params[:id]}/schedules/#{@scheduleID.id}/reservations/new"
-           reservations_new_path(
-              movie_id: params[:id],
-              schedule_id: params[:schedule_id],
-              date: params[:date],
-              sheet_id: s.id
-            )
-          %>
-        </td>
-        <% end %> 
+          <% if s.reservations.exists?(date: params[:date]) %>
+            <td class="sheet-color2">
+              <%= "c-#{s.column}" %>
+            </td>
+          <% else %>
+            <td class="sheet-color">
+              <%= link_to "c-#{s.column}", 
+                reservations_new_path(
+                    movie_id: params[:id],
+                    schedule_id: params[:schedule_id],
+                    date: params[:date],
+                    sheet_id: s.id
+                )
+              %>
+            </td>
+          <% end %> 
+        <% end %>
+        <td>C</td>
       </tr>
-    </tbody>
-  </table>
+    </table>
+  </div>
 </div>

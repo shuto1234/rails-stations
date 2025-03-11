@@ -61,17 +61,28 @@ class MoviesController < ApplicationController
   end
 
   def reservation
-
+    
     if params[:date].blank? || params[:schedule_id].blank?
-      redirect_to movies_id_path(params[:id])
+      return redirect_to movies_id_path(params[:id])
     end 
     
+    
+    @movieShow = Movie.find(params[:id])
+    @schedule = Schedule.find(params[:schedule_id])
+    
+    if @schedule.nil?
+      return redirect_to movies_id_path(params[:id])
+    end
     @sheets = Sheet.all
     @sheetsA = Sheet.where(row: 'a')
     @sheetsB = Sheet.where(row: 'b')
     @sheetsC = Sheet.where(row: 'c')
 
-
+    # 曜日を日本語表記で表示するための関数
+    require 'date'
+    date = params[:date].to_date
+    days = %w(日 月 火 水 木 金 土) 
+    @day_of_week = "(#{days[date.wday]})"
   end
 
 end
