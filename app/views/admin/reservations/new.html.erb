@@ -9,7 +9,9 @@
   </ul>
 <% end %>
 
-<%= form_with model: @reservation, url: admin_reservations_create_path(movie_id: params[:movie_id], schedule_id: params[:schedule_id], date: params[:date], sheet_id: params[:sheet_id]), local: true do |f| %>
+<%= form_with model: @reservation, url: admin_reservations_create_path(screen_id: @movie.screen_id, movie_id: params[:movie_id], schedule_id: params[:schedule_id], date: params[:date], sheet_id: params[:sheet_id]), local: true do |f| %>
+  <div>screen_id</div>
+  <div><%= f.text_field :screen_id, value: @movie.screen_id %></div>
   <div>movie_id</div>
   <div><%= f.text_field :movie_id, value: params[:movie_id] %></div>
   <div>schedule_id</div>

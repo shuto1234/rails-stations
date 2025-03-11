@@ -53,6 +53,6 @@ class Admin::MoviesController < ApplicationController
   
   # ストロングパラメータ
   def movie_params
-    params.require(:movie).permit(:name, :year, :description, :image_url, :is_showing)
+    params.require(:movie).permit(:name, :year, :description, :image_url, :is_showing, :screen_id)
   end
 end

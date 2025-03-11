@@ -1,0 +1,2 @@
+class ScreensController < ApplicationController
+end

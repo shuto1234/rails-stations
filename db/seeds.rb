@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# Screenモデルのデータを作る
+Screen.create([
+  { id: 1, number: 1},
+  { id: 2, number: 2},
+  { id: 3, number: 3}
+])

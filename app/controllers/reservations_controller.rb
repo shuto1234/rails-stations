@@ -1,10 +1,16 @@
 class ReservationsController < ApplicationController
   def new
+    @movie = Movie.find_by(id: params[:movie_id])
+    if @movie.nil?
+      return redirect_to root_path
+    end
+
     @reservation = Reservation.new(
       # 値を元から入れるために以下のコードを記入
       schedule_id: params[:schedule_id],
       sheet_id: params[:sheet_id],
-      date: params[:date]
+      date: params[:date],
+      screen_id: @movie.screen_id
     )
 
     @schedule_id = params[:schedule_id]
@@ -20,6 +26,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @movie = Movie.find(params[:movie_id])
     Rails.logger.debug "schedule_id: #{@schedule_id}, date: #{@date}, movie_id: #{@movie_id}"
 
     @schedule = Schedule.find_by(params[:schedule_id])
@@ -35,7 +42,8 @@ class ReservationsController < ApplicationController
         redirect_to reservation_sheets_path(
           schedule_id: @reservation.schedule_id,
           date: @reservation.date,
-          id: @schedule.movie_id
+          id: @schedule.movie_id,
+          screen_id: @movie.screen_id
         )
       end
     else
@@ -45,6 +53,6 @@ class ReservationsController < ApplicationController
   end
   private
   def reservation_params
-    params.require(:reservation).permit(:schedule_id, :sheet_id, :date, :name, :email)
+    params.require(:reservation).permit(:schedule_id, :sheet_id, :date, :name, :email, :screen_id)
   end
 end
