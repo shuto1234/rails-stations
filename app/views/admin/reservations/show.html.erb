@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<h1>管理者座席編集画面</h1>
+<% if @reservation.errors.any? %>
+  <%= @reservation.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @reservation.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+  <div>movie_id</div>
+  <div><%= @reservation.schedule.movie_id %></div>
+<%= form_with model: @reservation, url: admin_reservations_update_path, method: :put, local: true do |f| %>
+  <div>schedule_id</div>
+  <div><%= f.text_field :schedule_id %></div>
+  <div>sheet_id</div>
+  <div><%= f.text_field :sheet_id %></div>
+  <div>date</div>
+  <div><%= f.date_field :date %></div>
+  <div>名前</div>
+  <div><%= f.text_field :name %></div>
+  <div>Email</div>
+  <div><%= f.email_field :email %></div>
+  <div><%= f.submit "座席を予約する" %></div>
+<% end %>
+
+<h1>映画一覧ページ</h1>
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>movie_id</th>
+    <th>公開年</th>
+    <th>概要</th>
+    <th>上映中</th>
+    <th>スケジュール</th>
+  </tr>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.name%></td>
+      <td><%= movie.id %></td>
+      <td><%= movie.year %></td>
+      <td><%= movie.description %></td>
+      <td>
+        <% if movie.is_showing == true %>
+          上映中
+        <%  else movie.is_showing == false %>
+          上映予定
+        <% end %>
+      </td>
+      <% movie.schedules.each do |f| %>
+          <td>
+            ID:<%= f.id %>
+            <%= f.start_time.strftime("%H:%M") %>
+            ~
+            <%= f.end_time.strftime("%H:%M") %> 
+          </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
