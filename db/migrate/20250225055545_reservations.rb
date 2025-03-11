@@ -13,6 +13,7 @@ class Reservations < ActiveRecord::Migration[7.1]
       # t.index :sheet_id
       # t.index [:date, :schedule_id, :sheet_id], unique: true
     end
-    add_index :reservations, [:date, :schedule_id, :sheet_id], unique: true
+    # うまく処理が実行されていなかったから、一旦消している
+    # add_index :reservations, [:date, :schedule_id, :sheet_id], unique: true
   end
 end

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<h1>管理者座席予約画面</h1>
+<% if @reservation.errors.any? %>
+  <%= @reservation.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @reservation.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @reservation, url: admin_reservations_create_path(movie_id: params[:movie_id], schedule_id: params[:schedule_id], date: params[:date], sheet_id: params[:sheet_id]), local: true do |f| %>
+  <div>movie_id</div>
+  <div><%= f.text_field :movie_id, value: params[:movie_id] %></div>
+  <div>schedule_id</div>
+  <div><%= f.text_field :schedule_id, value: params[:schedule_id] %></div>
+  <div>sheet_id</div>
+  <div><%= f.text_field :sheet_id, value: params[:sheet_id] %></div>
+  <div>date</div>
+  <div>
+    <%= f.date_field :date %>
+    <%# <%= f.select :date, options_for_select(@dates.map {|date| [date.strftime("%Y-%m-%d (%a)"), date]}) %>  
+  </div>
+  <div>名前</div>
+  <div><%= f.text_field :name %></div>
+  <div>Email</div>
+  <div><%= f.email_field :email %></div>
+  <div><%= f.submit "座席を予約する" %></div>
+<% end %>
+

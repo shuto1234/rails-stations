@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<h1>座席予約一覧ページ</h1>
+<h4><%= link_to "新規予約登録画面", admin_reservations_new_path %></h4>
+<table>
+  <tr>
+    <th>映画タイトル</th>
+    <th>映画ID</th>
+    <th>削除ボタン</th>
+    <%# 以下reservationsテーブルのカラム名 %>
+    <th>ID</th>
+    <th>日付</th>
+    <th>スケジュールID</th>
+    <th>シートID</th>
+    <th>Email</th>
+    <th>予約者名</th>
+    <th>作成日</th>
+    <th>更新日</th>
+  </tr>
+  <% @reservations.each do |r| %>
+    <tr>
+      <td><%= link_to r.schedule.movie.name, admin_movies_show_path(r.schedule.movie_id) %></td>
+      <td><%= r.schedule.movie_id %></td> 
+      <td><%= button_to "削除", admin_reservations_destroy_path(r.id), method: :delete %></td> <%# 削除ボタン %>
+      <%# 以下reservationsテーブルのカラム名 %>
+      <td><%= link_to r.id, admin_reservations_show_path(r) %></td>
+      <td><%= r.date %></td>
+      <td><%= r.schedule_id %></td>
+      <td><%= r.sheet_id %></td>
+      <td><%= r.email %></td>
+      <td><%= r.name %></td>
+      <td><%= r.created_at %></td>
+      <td><%= r.updated_at %></td>
+    </tr>
+  <% end %>
+</table>

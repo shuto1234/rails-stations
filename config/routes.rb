@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   
   get 'sheets' => 'sheets#index', as: 'sheets'
 
-# config/routes.rb
-resources :reservations, only: [:create] 
+  # config/routes.rb
+  resources :reservations, only: [:create] 
 
   get 'admin/movies' => 'admin/movies#index', as: 'admin_movies_index'
   get 'admin/movies/new', as: 'admin_movies_new'
@@ -29,6 +29,14 @@ resources :reservations, only: [:create]
   get 'admin/schedules/:id' => 'admin/schedules#edit', as: 'admin_schedules_edit'
   put 'admin/schedules/:id' => 'admin/schedules#update', as: 'admin_schedules_update'
   delete 'admin/schedules/:id' => 'admin/schedules#destroy', as: 'admin_schedules_destroy'
+
+  get 'admin/reservations' => 'admin/reservations#index', as: 'admin_reservations'
+  get 'admin/reservations/new' => 'admin/reservations#new', as: 'admin_reservations_new'
+  post 'admin/reservations' => 'admin/reservations#create', as: 'admin_reservations_create'
+  get 'admin/reservations/:id' => 'admin/reservations#show', as: 'admin_reservations_show'
+  put 'admin/reservations/:id' => 'admin/reservations#update', as: 'admin_reservations_update'
+  delete 'admin/reservations/:id' => 'admin/reservations#destroy', as: 'admin_reservations_destroy'
+
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
