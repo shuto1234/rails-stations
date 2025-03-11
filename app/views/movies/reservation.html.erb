@@ -33,7 +33,7 @@
       <tr>
         <td>A</td>
         <% @sheetsA.each do |s|%> 
-          <% if s.reservations.exists?(date: params[:date]) %>
+          <% if s.reservations.exists?(schedule_id: params[:schedule_id]) %>
             <td class="sheet-color2">
               <%= "a-#{s.column}" %>
             </td>

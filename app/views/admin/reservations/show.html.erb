@@ -11,6 +11,7 @@
 
   <div>movie_id</div>
   <div><%= @reservation.schedule.movie_id %></div>
+  <div>screen_id<div>
 <%= form_with model: @reservation, url: admin_reservations_update_path, method: :put, local: true do |f| %>
   <div>schedule_id</div>
   <div><%= f.text_field :schedule_id %></div>

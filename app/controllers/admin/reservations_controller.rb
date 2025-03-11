@@ -5,11 +5,13 @@ class Admin::ReservationsController < ApplicationController
 
   def new
     @movies = Movie.all
+    @movie = Movie.find(params[:movie_id])
     @reservation = Reservation.new(
       # 値を元から入れるために以下のコードを記入
       schedule_id: params[:schedule_id],
       sheet_id: params[:sheet_id],
-      date: params[:date]
+      date: params[:date],
+      screen_id: @movie.screen_id
     )
 
     @schedule_id = params[:schedule_id]
