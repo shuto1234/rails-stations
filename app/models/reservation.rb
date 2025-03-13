@@ -2,6 +2,7 @@ class Reservation < ApplicationRecord
   belongs_to :sheet
   belongs_to :schedule
   belongs_to :screen
+  belongs_to :user
 
   validates :schedule_id, presence: true
   validates :sheet_id, presence: true

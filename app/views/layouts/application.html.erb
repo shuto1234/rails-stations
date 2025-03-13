@@ -1,0 +1,18 @@
+<body>
+  <div><%= link_to "ホームに戻る", root_path %><div>
+  <% if user_signed_in?%>
+    <p>ログイン中</p>
+    <div>
+      <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </div>
+  <% else %>
+    <p>ログアウト中</p>
+    <div>
+      <%= link_to "新規登録", new_user_registration_path %>
+    </div>
+    <div>
+      <%= link_to "ログイン", new_user_session_path %>
+    </div>
+  <% end %>
+  <%= yield %>
+<body>

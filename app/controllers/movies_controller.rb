@@ -84,5 +84,4 @@ class MoviesController < ApplicationController
     days = %w(日 月 火 水 木 金 土) 
     @day_of_week = "(#{days[date.wday]})"
   end
-
 end

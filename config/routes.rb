@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   root to: 'movies#index'
   get '/' => 'movies#index', as: 'movies'
   get 'movies/:id' => 'movies#show', as: 'movies_id'
@@ -38,6 +40,7 @@ Rails.application.routes.draw do
   delete 'admin/reservations/:id' => 'admin/reservations#destroy', as: 'admin_reservations_destroy'
 
 
+  get 'admin/users/' => 'admin/users#index', as: 'admin_users'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
