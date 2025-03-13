@@ -8,6 +8,7 @@
     <th>削除ボタン</th>
     <%# 以下reservationsテーブルのカラム名 %>
     <th>ID</th>
+    <th>user_ID</th>
     <th>日付</th>
     <th>スケジュールID</th>
     <th>シートID</th>
@@ -23,6 +24,7 @@
       <td><%= button_to "削除", admin_reservations_destroy_path(r.id), method: :delete %></td> <%# 削除ボタン %>
       <%# 以下reservationsテーブルのカラム名 %>
       <td><%= link_to r.id, admin_reservations_show_path(r) %></td>
+      <td><%= r.user_id %></td>
       <td><%= r.date %></td>
       <td><%= r.schedule_id %></td>
       <td><%= r.sheet_id %></td>

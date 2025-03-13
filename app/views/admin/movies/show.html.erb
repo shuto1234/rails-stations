@@ -32,10 +32,10 @@
             <th>削除</th>
             <th>スケジュールID</th>
           </tr>
-          <% @movieSchedules.each do |f| %>
+          <% @movieSchedules.order(:start_time).each do |f| %>
           <tr>
-            <td><%= f.start_time.strftime("%H%M") %></td>
-            <td><%= f.end_time.strftime("%H%M") %></td>
+            <td><%= f.start_time.strftime("%H:%M") %></td>
+            <td><%= f.end_time.strftime("%H:%M") %></td>
             <td><%= button_to "削除", admin_schedules_destroy_path(f.id), method: :delete %></td>
             <td><%= link_to f.id, admin_schedules_edit_path(f.id) %></td>
           </tr>

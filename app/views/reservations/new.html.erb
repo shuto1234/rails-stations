@@ -23,8 +23,8 @@
   <div><%= params[:date] %></div>
   <div><%= f.date_field :date, value: params[:date], hidden: true %></div>
   <div>名前</div>
-  <div><%= f.text_field :name %></div>
+  <div><%= f.text_field :name, value: @reservation.name %></div>
   <div>Email</div>
-  <div><%= f.email_field :email %></div>
+  <div><%= f.email_field :email, value: @reservation.email %></div>
   <div><%= f.submit "座席を予約する" %></div>
 <% end %>

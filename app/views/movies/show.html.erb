@@ -2,44 +2,46 @@
 <h1>映画詳細ページ</h1>
 <% if @movieShow.present? %>
 <div class="movie-page">
-    <div class="shows">
-      <div class="show-image">
-        <img src="<%= @movieShow.image_url%>"/>
-      </div>
-      <div class="show">
-        <div class="title-card">
-          <div>
-            <% if @movieShow.is_showing == true %>
-              公開中
-            <% else %>
-              公開予定
-            <% end %>
-          </div>
-          <h4><%= @movieShow.name %></h4>
-        </div>
-        <div class="description"><%= @movieShow.year %></div>
-        <div class="description"><%= @movieShow.description %></div>
-      </div>
+  <div class="shows">
+    <div class="show-image">
+      <img src="<%= @movieShow.image_url%>"/>
     </div>
-    <div class="movie-schedules">
-      <h4 class="schedule-head">上映スケジュール</h4>
-      <div class="movie-schedule">
-        <table>
-          <tr>
-            <th>開始時刻</th>
-            <th>終了時刻</th>
-          </tr>
-          <% @schedules.each do |f| %>
-          <tr>
-            <td><%= f.start_time.strftime("%H%M") %></td>
-            <td><%= f.end_time.strftime("%H%M") %></td>
-          </tr>
+    <div class="show">
+      <div class="title-card">
+        <div>
+          <% if @movieShow.is_showing == true %>
+            公開中
+          <% else %>
+            公開予定
           <% end %>
-        </table>
+        </div>
+        <h4><%= @movieShow.name %></h4>
       </div>
+      <div class="description"><%= @movieShow.year %></div>
+      <div class="description"><%= @movieShow.description %></div>
     </div>
-    <div > 
-      <h4 class="schedule-form-head">予約フォーム</h4>
+  </div>
+  <div class="movie-schedules">
+    <h4 class="schedule-head">上映スケジュール</h4>
+    <div class="movie-schedule">
+      <table>
+        <tr>
+          <th>開始時刻</th>
+          <th>終了時刻</th>
+        </tr>
+        <% @schedules.each do |f| %>
+        <tr>
+          <td><%= f.start_time.strftime("%H%M") %></td>
+          <td><%= f.end_time.strftime("%H%M") %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div> 
+  
+    <h4 class="schedule-form-head">予約フォーム</h4>
+    <% if user_signed_in? %>
       <%= form_with url: reservation_sheets_path(@movieShow), method: :get, local: true do |f| %>
         <h6>日付を選択</h6>
         <div>
@@ -62,7 +64,16 @@
         </div>
         <div><%= f.submit "座席を予約する" %></div>
       <% end %>
-    </div>
+    <% else %>
+      <h5>予約の方はログイン、または新規登録をしてください。</h5>
+      <div>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </div>
+      <div>
+        <%= link_to "ログイン", new_user_session_path %>
+      </div>
+    <% end %>
+  </div>
 </div>
 <% else %>
 <p>映画が見つかりません</p>
