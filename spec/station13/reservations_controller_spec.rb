@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 # 予約に関してこれまでの仕様が満たされていることのテスト
