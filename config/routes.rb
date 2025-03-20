@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
 
@@ -6,15 +8,13 @@ Rails.application.routes.draw do
   get 'movies/:id' => 'movies#show', as: 'movies_id'
   get 'movies/:id/reservation' => 'movies#reservation', as: 'reservation_sheets'
 
-
   get 'movies/:movie_id/schedules/:schedule_id/reservations/new' => 'reservations#new', as: 'reservations_new'
   post 'reservations' => 'reservations#create', as: 'reservations_create'
 
-  
   get 'sheets' => 'sheets#index', as: 'sheets'
 
   # config/routes.rb
-  resources :reservations, only: [:create] 
+  resources :reservations, only: [:create]
 
   get 'admin/movies' => 'admin/movies#index', as: 'admin_movies_index'
   get 'admin/movies/new', as: 'admin_movies_new'
@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   put 'admin/movies/:id' => 'admin/movies#update', as: 'admin_movies_update'
   delete 'movies/:id' => 'admin/movies#destroy', as: 'admin_movies_destroy'
 
-  
   get 'admin/schedules' => 'admin/schedules#index', as: 'admin_schedules'
   get 'admin/movies/:id/schedules/new' => 'admin/schedules#new', as: 'admin_schedules_new'
   post 'admin/movies/:id/schedules' => 'admin/schedules#create', as: 'admin_schedules_create'
@@ -39,14 +38,13 @@ Rails.application.routes.draw do
   put 'admin/reservations/:id' => 'admin/reservations#update', as: 'admin_reservations_update'
   delete 'admin/reservations/:id' => 'admin/reservations#destroy', as: 'admin_reservations_destroy'
 
-
   get 'admin/users/' => 'admin/users#index', as: 'admin_users'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Defines the root path route ("/")
   # root "posts#index"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Screen < ApplicationRecord
   validates :number, presence: true
 

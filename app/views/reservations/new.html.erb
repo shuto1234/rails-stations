@@ -8,11 +8,10 @@
   </ul>
 <% end %>
 
-<%= form_with model: @reservation, url: reservations_create_path(screen_id: @movie.screen_id, movie_id: params[:movie_id], schedule_id: params[:schedule_id], date: params[:date], sheet_id: params[:sheet_id]), local: true do |f| %>
-  <div><%= f.text_field :screen_id, value: @movie.screen_id, hidden: true %></div>
+<%= form_with model: @reservation, url: reservations_create_path(screen_id: params[:screen_id], movie_id: params[:movie_id], schedule_id: params[:schedule_id], date: params[:date], sheet_id: params[:sheet_id]), local: true do |f| %>
+  <div><%= f.text_field :screen_id, value: @movie.screen_id %></div>
   <div>movie_id</div>
   <div><%= params[:movie_id] %></div>
-  <div><%= f.text_field :movie_id, value: params[:movie_id], hidden: true %></div>
   <div>schedule_id</div>
   <div><%= params[:schedule_id] %></div>
   <div><%= f.text_field :schedule_id, value: params[:schedule_id],hidden: true %></div>
@@ -23,8 +22,11 @@
   <div><%= params[:date] %></div>
   <div><%= f.date_field :date, value: params[:date], hidden: true %></div>
   <div>名前</div>
-  <div><%= f.text_field :name, value: @reservation.name %></div>
+  <div><%= current_user.name %></div>
+  <div><%= f.text_field :name, value: current_user.name, hidden: true %></div>
   <div>Email</div>
-  <div><%= f.email_field :email, value: @reservation.email %></div>
+  <div><%= current_user.email%></div>
+  <div><%= f.email_field :email, value: current_user.email, hidden: true %></div>
+  <div><%= f.text_field :user_id, value: current_user.id, hidden: true %></div>
   <div><%= f.submit "座席を予約する" %></div>
 <% end %>

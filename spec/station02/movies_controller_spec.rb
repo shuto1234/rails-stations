@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec::Matchers.define_negated_matcher :not_include, :include
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :schedule do
     sequence(:movie_id) { |n| n }

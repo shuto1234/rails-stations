@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec::Matchers.define_negated_matcher :not_include, :include
 
@@ -9,7 +11,7 @@ RSpec.describe MoviesController, type: :controller do
       get 'index'
     end
 
-    context "Station01の仕様" do
+    context 'Station01の仕様' do
       it '200を返すこと' do
         expect(response).to have_http_status(200)
       end
