@@ -55,7 +55,7 @@
       <tr>
         <td>B</td>
         <% @sheetsB.each do |s|%> 
-          <% if s.reservations.exists?(date: params[:date]) %>
+          <% if s.reservations.exists?(schedule_id: params[:schedule_id], date: params[:date]) %>
             <td class="sheet-color2">
               <%= "b-#{s.column}" %>
             </td>
@@ -77,7 +77,7 @@
       <tr>
         <td>C</td>
         <% @sheetsC.each do |s|%> 
-          <% if s.reservations.exists?(date: params[:date]) %>
+          <% if s.reservations.exists?(date: params[:date], schedule_id: params[:schedule_id]) %>
             <td class="sheet-color2">
               <%= "c-#{s.column}" %>
             </td>

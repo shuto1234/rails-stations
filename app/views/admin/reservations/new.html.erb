@@ -9,24 +9,24 @@
   </ul>
 <% end %>
 
-<%= form_with model: @reservation, url: admin_reservations_create_path(screen_id: @movie.screen_id, movie_id: params[:movie_id], schedule_id: params[:schedule_id], date: params[:date], sheet_id: params[:sheet_id]), local: true do |f| %>
+<%= form_with model: @reservation, url: admin_reservations_create_path(screen_id: params[:screen_id], schedule_id: params[:schedule_id], date: params[:date], sheet_id: params[:sheet_id]), local: true do |f| %>
   <div>screen_id</div>
-  <div><%= f.text_field :screen_id, value: @movie.screen_id %></div>
-  <div>movie_id</div>
-  <div><%= f.text_field :movie_id, value: params[:movie_id] %></div>
+  <div><%= f.text_field :screen_id %></div>
   <div>schedule_id</div>
-  <div><%= f.text_field :schedule_id, value: params[:schedule_id] %></div>
+  <div><%= f.text_field :schedule_id %></div>
   <div>sheet_id</div>
-  <div><%= f.text_field :sheet_id, value: params[:sheet_id] %></div>
+  <div><%= f.text_field :sheet_id%></div>
   <div>date</div>
   <div>
     <%= f.date_field :date %>
     <%# <%= f.select :date, options_for_select(@dates.map {|date| [date.strftime("%Y-%m-%d (%a)"), date]}) %>  
   </div>
   <div>名前</div>
-  <div><%= f.text_field :name %></div>
+  <div><%= f.text_field :name, value: current_user.name %></div>
   <div>Email</div>
-  <div><%= f.email_field :email %></div>
+  <div><%= f.email_field :email, value: current_user.email %></div>
+  <div>user_id</div>
+  <div><%= f.text_field :user_id, value: current_user.id %></div>
   <div><%= f.submit "座席を予約する" %></div>
 <% end %>
 

@@ -1,0 +1,34 @@
+inherit_from: .rubocop_todo.yml
+
+# コードのブロックの長さが長すぎることに関する警告を無効化
+Metrics/BlockLength:
+  Enabled: false
+
+
+# メソッドの長さが長すぎることに関する警告を無効化
+Metrics/MethodLength:
+  Enabled: false
+
+# キャメルケースを利用可能にするため、変数名に関するスタイルチェックを無効化
+Naming/VariableName:
+  Enabled: false
+
+# キャメルケースを利用可能にするため、メソッド名に関するスタイルチェックを無効化
+Naming/MethodName:
+  Enabled: false
+
+# ドキュメントコメントが不足している警告を無効化
+Style/Documentation:
+  Enabled: false
+
+# Layout/TrailingWhitespaceと繋がり、片方を直すと片方の警告がでるため無効化
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+# Layout/EmptyLineAfterGuardClauseと繋がり、片方を直すと片方の警告がでるため無効化
+Layout/TrailingWhitespace:
+  Enabled: false
+
+# specやユーザーログインで作成した、deviseのファイルで引っかかったが、そこは変更したくないため、設定を変更
+Layout/LineLength:
+  Enabled: false
